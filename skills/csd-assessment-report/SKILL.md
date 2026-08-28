@@ -183,13 +183,45 @@ Partners with physical presence in Azure Data Centers (not using Azure servers/h
 | Sentinel Content Hub solution published | Solution package, data connectors |
 | MISA membership (if not Sentinel) | MISA enrollment confirmation |
 
-##### Industry AI (additional requirements on top of solution area audit)
+##### Industry AI (additional requirements — per July 2026 Updated Patterns Playbook)
 
-| AI Pattern | What to Assess | Evidence |
+Partners must pass the solution area technical audit (above) **plus** demonstrate one of three AI patterns. **Solutions must not leverage outside models when transacting through Marketplace.** All solutions must independently align with the Microsoft Responsible AI Standard.
+
+###### Pattern 1: Copilot Agents
+
+| Aspect | Requirement | Evidence |
 |---|---|---|
-| **Copilot Agents** | Industry-specific copilot agent built on Microsoft AI | Agent code, Foundry config, copilot SDK usage |
-| **Fabric Solutions** | Application built on or embedding Fabric capabilities | Fabric workspace config, data pipeline code |
-| **AI Model or Service** | Industry-specific AI model hosted on Azure | Model deployment config, Azure ML workspace, custom model code |
+| **Development Platform** | Must use at least one: **Copilot Studio**, **Azure AI Foundry**, or **Azure OpenAI Service** with any supported catalog model | Screenshots of platform usage |
+| **Data Storage** | Must use at least one: **OneLake**, Azure data services (Cosmos DB, SQL, Synapse Analytics, PostgreSQL, Blob Storage, ADLS Gen2), **Microsoft Graph**, OneDrive, **Dataverse**, or SharePoint | Architecture diagram showing data sources |
+| **Experience Canvas** | Deploy as: standalone embedded copilot in websites/apps, **Teams agent (M365 Agents)**, or **extension to Microsoft Copilots** | Demo of deployment pattern |
+| **Required Evidence** | Industry-specific prompts and responses, AI Agent Platform usage proof, demonstration of experience patterns | Prompts/responses, platform screenshots, demo video |
+
+**What to check in repo:** Copilot Studio config, Azure AI Foundry project files, Azure OpenAI deployment, data connector code (Cosmos DB/SQL/Graph SDKs), Teams app manifest, agent deployment config.
+
+###### Pattern 2: Fabric Solutions
+
+| Aspect | Requirement | Evidence |
+|---|---|---|
+| **Storage** | **OneLake must be the primary analytical storage layer** | OneLake configuration, data pipeline code |
+| **Services** | Must use **at least 2 core Fabric services**: Data Factory, Data Engineering, Data Science, Data Warehouse, Power BI, Real-Time Analytics, **Fabric IQ** | Architecture diagram showing Fabric services |
+| **Fabric IQ** (if applicable) | Industry ontology providers, customer-specific semantic overlays, Fabric IQ + Foundry agent chaining, data agent, or autonomous operations | Fabric IQ configuration, ontology definitions |
+| **Non-Fabric Azure** | May include non-Fabric Azure data services only if explicitly required; majority must be on Fabric | Service inventory |
+| **AI Foundation** | If used as foundation for AI capabilities, must demonstrate Fabric data being leveraged for Industry AI use cases | Demo of AI use case |
+| **Required Evidence** | Use of Fabric services and/or Fabric APIs, OneLake usage proof | Fabric workspace screenshots, API usage |
+
+**What to check in repo:** Fabric workspace configs, OneLake references, Data Factory pipelines, Power BI reports, Fabric IQ setup, lakehouse/warehouse definitions.
+
+###### Pattern 3: AI Model or Service (hosted on Microsoft Foundry)
+
+| Aspect | Requirement | Evidence |
+|---|---|---|
+| **Hosting** | Must be hosted and managed on **Microsoft Foundry** (preferred) | Foundry portal screenshots, deployment config |
+| **Custom Models** | Build custom LLM, SLM, or fine-tuned models from general-purpose ones. **Publish in Microsoft Foundry Catalog** | Model catalog listing, fine-tuning config |
+| **Azure AI Services** | Build on: Microsoft Foundry, Azure AI Search, AI Translator, AI Speech, AI Vision, AI Language, Azure Machine Learning, AI Document Intelligence | Architecture diagram showing services |
+| **Foundry IQ** (if applicable) | Publish partner knowledgebase as MCP in Foundry IQ, partner embedding + ranking models in Foundry agentic RAG, direct integration with search indexes | Foundry IQ config, MCP setup |
+| **Required Evidence** | Inferencing/fine-tuning via Foundry, solution architecture showing Foundry + Azure AI services, model deployment screenshots, industry-specific prompts/responses | Architecture docs, portal screenshots, demo |
+
+**What to check in repo:** Foundry project config, model deployment scripts, fine-tuning pipelines, Azure AI service integrations (Search, Speech, Vision, Language, Doc Intelligence), MCP configurations, model catalog references.
 
 ### Pillar 3: Customer Success
 
