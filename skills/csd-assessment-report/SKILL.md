@@ -307,6 +307,41 @@ For each pillar, produce:
 3. **Gaps** — specific missing items with severity
 4. **Actions** — what to do, with effort estimate (S/M/L) and priority
 
+### Phase 3.5: Generate Recommended Architecture Diagram
+
+Based on the assessment findings, generate a **Partner Center–compliant reference architecture diagram** (Mermaid) that the partner can use for audit requirement 1.1 and as a co-sell asset.
+
+**Inputs:** IaC templates, app code structure, existing docs, discovered Azure services, workflow category selection.
+
+**Diagram must include:**
+- All Azure services discovered in the repo (App Service, Cosmos DB, Storage, Key Vault, OpenAI, etc.)
+- End-customer integration/interoperation points with direction of data flow
+- Tenant boundary separation (partner tenant vs. customer tenant)
+- Network topology (VNet, private endpoints, Front Door/WAF)
+- Identity flow (Entra ID, managed identities, service principals)
+- Data flow direction arrows (ingestion → processing → storage → output)
+
+**Tailor to the selected workflow category:**
+
+| Category | Diagram Emphasis |
+|---|---|
+| **2.1 Data Ops** | Data ingestion sources, processing pipeline, storage locations, encryption points, customer data residency boundary |
+| **2.2 AI/ML** | AI/ML model hosting, Azure OpenAI / Cognitive Services integration, training vs. inference paths, RAG pipeline, customer data flow into models |
+| **2.3 Customer Deployed** | Components deployed into customer tenant (VMs, containers, agents), SaaS control plane in partner tenant, hybrid coordination flow |
+| **2.4 Control Plane/DevOps** | Orchestration engine, ARM/Bicep deployment flow, CI/CD pipeline, cross-tenant communication, governance policy integration |
+
+**For Industry AI solutions, additionally show:**
+- AI pattern (Copilot Agent / Fabric / AI Model) and its platform components
+- Industry-specific data sources and scenario mapping
+- Microsoft AI service integration points (Copilot Studio, Foundry, Fabric, Azure AI)
+
+**Skills to invoke:**
+- `azure-resource-visualizer` — if live Azure resources exist, generate from deployed state
+- `deployment-blueprints` — match to the closest SaaS reference topology
+- `azure-principal-architect` — WAF-aligned architecture review of the diagram
+
+**Output:** Mermaid diagram embedded in the report + exported as standalone PNG/SVG for Partner Center submission. Save to `.azure/assessments/architecture-diagram-YYYY-MM-DD.md`.
+
 ### Phase 4: Generate Report
 
 Build a **self-contained HTML file** using the `web-artifacts-builder` Clawpilot theme with `@media print` CSS for PDF output.
@@ -318,7 +353,8 @@ Build a **self-contained HTML file** using the `web-artifacts-builder` Clawpilot
 3. **Designation Roadmap** — Visual timeline showing path to audit-ready status
 4. **Pillar 1: Marketplace Readiness** — Checklist with status per item
 5. **Pillar 2: Technical Interoperability** — Per-category audit readiness with evidence
-6. **Pillar 3: Customer Success** — Metrics status, gap to threshold, metering implementation
+6. **Recommended Architecture Diagram** — Mermaid diagram tailored to workflow category, showing Azure services, customer integration points, data flows, tenant boundaries, and identity. Suitable for Partner Center submission (req 1.1) and co-sell materials.
+7. **Pillar 3: Customer Success** — Metrics status, gap to threshold, metering implementation
 7. **Pillar 4: Industry AI Alignment** — (if applicable) Scenario mapping, AI pattern evidence
 8. **Action Plan** — Prioritized next steps grouped by timeline:
    - **Immediate** (0-30 days) — Blockers and quick wins
