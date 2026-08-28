@@ -234,7 +234,8 @@ Evaluate commercial performance and customer satisfaction metrics.
 | **Marketplace Billed Sales (MBS)** | $4M USD | $1M USD | $100K USD | $1M USD |
 | **Net-new customer adds** | 12 customers > $10K each | N/A | N/A | 12 customers > $10K each |
 | **Marketplace transactions** | 30 txns, 8 unique customers (min $100 each) | N/A | N/A | 30 txns, 8 unique customers |
-| **Azure Consumption (MACC)** | $30M USD | N/A | N/A | $30M USD |
+| **Azure Consumption (MACC)** | $30M USD + 5 txns | N/A | N/A | $30M USD + 5 txns |
+| **Azure Consumption (MACC) top tier** | $200M USD + 1 IP co-sell listing | N/A | N/A | $200M USD + 1 IP co-sell listing |
 | **BizApps PIR** | N/A | $4M USD | N/A | N/A |
 | **Teams Apps MAU** | N/A | N/A | 50,000 MAU | N/A |
 
@@ -243,7 +244,7 @@ Evaluate commercial performance and customer satisfaction metrics.
 | Metric | Threshold |
 |---|---|
 | **Marketplace rating** | >= 4.5 average with >= 15 ratings |
-| **Customer evidence artifacts** | >= 2 referenceable case studies / customer artifacts |
+| **Customer evidence artifacts** | >= 2 referenceable case studies / customer artifacts for **enterprise customers** (>1000 employees). Security designation: case studies don't need to be publicly referenceable but may require customer validation. |
 
 **What to check in the repo:**
 - Customer case studies in docs/
