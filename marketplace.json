@@ -1,0 +1,28 @@
+{
+  "name": "csd-assessment-report",
+  "owner": {
+    "name": "dawright22",
+    "url": "https://github.com/dawright22"
+  },
+  "metadata": {
+    "description": "Certified Software Designation (CSD) readiness assessment for Microsoft Solutions Partner program. Evaluates Marketplace readiness, technical audit criteria, customer success metrics, and Industry AI alignment.",
+    "version": "1.0.0",
+    "category": "compliance",
+    "tags": ["azure", "certified-software", "csd", "isv", "partner-center", "marketplace", "solutions-partner", "technical-audit", "industry-ai", "readiness"]
+  },
+  "plugins": [
+    {
+      "name": "csd-assessment-report",
+      "description": "CSD readiness assessment and report generator for Git-Ape.",
+      "version": "1.0.0",
+      "source": "."
+    }
+  ],
+  "skills": [
+    {
+      "name": "csd-assessment-report",
+      "description": "Certified Software Designation readiness assessment with PDF report",
+      "category": "compliance"
+    }
+  ]
+}
